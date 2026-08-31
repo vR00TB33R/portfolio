@@ -1,8 +1,11 @@
 {
-  "name": "signals-portfolio",
+  "name": "portfolio",
   "compatibility_date": "2026-08-31",
   "assets": {
     "directory": "./dist",
     "html_handling": "auto-trailing-slash"
+  },
+  "observability": {
+    "enabled": false
   }
 }
