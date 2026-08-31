@@ -1,0 +1,25 @@
+---
+import AboutSection from "../components/AboutSection.astro";
+import BaseLayout from "../layouts/BaseLayout.astro";
+---
+
+<BaseLayout
+  title="Rootbeer Security"
+  description="Rootbeer Security is the personal site of Spencer Beer, and home of the Bottoms Up 🍻 blog."
+  protocol="CAN"
+>
+  <section class="page-hero home-hero" aria-labelledby="home-title">
+    <p class="section-label">Embedded Systems Security Engineer</p>
+    <h1 id="home-title">Rootbeer Security 🍺</h1>
+    <p class="intro">
+      Well hello. I am Spencer Beer, an engineer and researcher with a focus on reverse engineering 
+      and product security. I write about my work, hobbies, and research in the Bottoms Up 🍻 blog.
+    </p>
+    <div class="primary-links">
+      <a href="/bottoms-up/">Read Bottoms Up 🍻 <span aria-hidden="true">&rarr;</span></a>
+      <a href="#about">About me <span aria-hidden="true">&rarr;</span></a>
+    </div>
+  </section>
+
+  <AboutSection />
+</BaseLayout>

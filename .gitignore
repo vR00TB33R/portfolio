@@ -1,1 +1,10 @@
-.vscode
+node_modules/
+dist/
+.astro/
+.DS_Store
+.vscode/
+.env
+.env.*
+!.env.example
+.dev.vars
+.wrangler/

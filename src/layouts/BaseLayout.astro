@@ -1,0 +1,92 @@
+---
+import "../styles/global.css";
+
+type Protocol = "CAN" | "SPI";
+
+interface Props {
+  title: string;
+  description: string;
+  protocol: Protocol;
+}
+
+const { title, description, protocol } = Astro.props;
+const currentPath = Astro.url.pathname;
+const year = new Date().getFullYear();
+const pageTitle = `${title} | Spencer Beer`;
+const isActive = (path: string) =>
+  path === "/" ? currentPath === "/" : currentPath.startsWith(path);
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="description" content={description} />
+    <meta name="theme-color" content="#ffffff" />
+    <link rel="icon" type="image/gif" sizes="32x32" href="/favicon-32x32.gif" />
+    <link rel="icon" type="image/gif" sizes="16x16" href="/favicon-16x16.gif" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.gif" />
+    <link rel="manifest" href="/site.webmanifest" />
+    <title>{pageTitle}</title>
+    <script is:inline>
+      (() => {
+        try {
+          const saved = localStorage.getItem("theme");
+          const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+          const theme = saved === "light" || saved === "dark"
+            ? saved
+            : prefersDark ? "dark" : "light";
+          document.documentElement.dataset.theme = theme;
+        } catch {
+          document.documentElement.dataset.theme = "light";
+        }
+      })();
+    </script>
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="header-inner">
+        <a class="identity" href="/images/beers.jpg">Spencer Beer</a>
+        <nav aria-label="Primary navigation">
+          <a class:list={{ active: isActive("/") }} href="/">Home</a>
+          <a class:list={{ active: isActive("/bottoms-up") }} href="/bottoms-up/">Bottoms Up 🍻</a>
+        </nav>
+        <button
+          class="theme-toggle"
+          id="theme-toggle"
+          type="button"
+          aria-label="Switch color theme"
+          aria-pressed="false"
+        >
+          <span class="theme-toggle-label" aria-hidden="true"></span>
+        </button>
+      </div>
+    </header>
+
+    <main class="protocol-page" id="signal-page" data-protocol={protocol}>
+      <a
+        class="protocol-sidebar"
+        id="protocol-link"
+        target="_blank"
+        rel="noreferrer"
+      >
+        <canvas id="protocol-canvas" aria-hidden="true"></canvas>
+      </a>
+
+      <article class="page-content">
+        <slot />
+      </article>
+    </main>
+
+    <footer class="site-footer">
+      <div>
+        <span>&copy; {year} Spencer Beer</span>
+        <span>Static Astro site: no tracking</span>
+      </div>
+    </footer>
+
+    <script src="../scripts/theme.ts"></script>
+    <script src="../scripts/protocol-traces.ts"></script>
+  </body>
+</html>

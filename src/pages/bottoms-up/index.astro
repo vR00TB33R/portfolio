@@ -1,0 +1,116 @@
+---
+import { getCollection, render } from "astro:content";
+import BaseLayout from "../../layouts/BaseLayout.astro";
+
+const posts = await Promise.all(
+  (await getCollection("posts", ({ data }: any) => !data.draft))
+    .sort((a: any, b: any) => {
+      const dateDifference =
+        (b.data.publishedAt?.valueOf() ?? Number.NEGATIVE_INFINITY) -
+        (a.data.publishedAt?.valueOf() ?? Number.NEGATIVE_INFINITY);
+
+      return dateDifference || a.data.order - b.data.order;
+    })
+    .map(async (entry: any) => {
+      const { Content } = await render(entry);
+      return { entry, Content };
+    }),
+);
+---
+
+<BaseLayout
+  title="Bottoms Up 🍻"
+  description="Bottoms Up 🍻 is Spencer Beer's blog for OT security, embedded systems, protocols, and research."
+  protocol="SPI"
+>
+  <section class="page-hero blog-hero" aria-labelledby="notes-title">
+    <p class="section-label">Blog</p>
+    <h1 id="notes-title">Bottoms Up 🍻</h1>
+    <p class="intro">
+      Everything is open source if you know where to look: Reverse Engineering Systems from the Ground Up. And occasionally developing them.
+    </p>
+  </section>
+
+  <section class="blog-feed" aria-labelledby="feed-title">
+    <p class="section-label" id="feed-title">All posts</p>
+
+    <div class="content-search" role="search">
+      <label for="content-search">Search Bottoms Up 🍻</label>
+      <input
+        id="content-search"
+        type="search"
+        placeholder="Try CAN, Raspberry Pi, or vehicle security"
+        autocomplete="off"
+        aria-describedby="search-count"
+      />
+      <p id="search-count" aria-live="polite">{posts.length} posts</p>
+    </div>
+
+    <div>
+      {posts.map(({ entry: post, Content }) => (
+        <article class="post-summary" id={post.id} data-search-post>
+          <div class="post-meta">
+            <span>Post</span>
+            {post.data.publishedAt && (
+              <time datetime={post.data.publishedAt.toISOString()}>
+                {post.data.publishedAt.toLocaleDateString("en-US", {
+                  month: "long",
+                  day: "numeric",
+                  year: "numeric",
+                  timeZone: "UTC",
+                })}
+              </time>
+            )}
+            <span>{post.data.readTime}</span>
+          </div>
+          <h2>{post.data.title}</h2>
+          <p>{post.data.description}</p>
+
+          {post.data.tags.length > 0 && (
+            <ul class="entry-tags" aria-label={`${post.data.title} topics`}>
+              {post.data.tags.map((tag: string) => <li>{tag}</li>)}
+            </ul>
+          )}
+
+          {(post.data.image || post.data.gallery) && (
+            <div class="entry-media">
+              {post.data.image && (
+                <img
+                  src={post.data.image}
+                  alt={post.data.title + " featured image"}
+                  loading="lazy"
+                />
+              )}
+              {post.data.gallery && (
+                <img
+                  src={post.data.gallery}
+                  alt={post.data.title + " demonstration"}
+                  loading="lazy"
+                />
+              )}
+            </div>
+          )}
+
+          <div class="post-content">
+            <Content />
+          </div>
+
+          {post.data.links.length > 0 && (
+            <div class="entry-links">
+              {post.data.links.map((link: any) => (
+                <a href={link.url} target="_blank" rel="noreferrer">
+                  {link.label} <span aria-hidden="true">&rarr;</span>
+                </a>
+              ))}
+            </div>
+          )}
+        </article>
+      ))}
+      <p class="search-empty" data-search-empty hidden>
+        No posts match that search. Try a broader term.
+      </p>
+    </div>
+  </section>
+
+  <script src="../../scripts/content-search.ts"></script>
+</BaseLayout>
