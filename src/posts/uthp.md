@@ -21,4 +21,4 @@ links:
 
 Medium and heavy-duty vehicles use a mixture of proprietary and legacy protocols for diagnostic and control functions. Standards including J1939, J1708, and J2497 were not designed around modern access control or encryption, while the tooling needed to examine them has historically been fragmented.
 
-Developed in collaboration with the National Motor Freight Traffic Association, UTHP brings the interfaces and tooling needed for heavy-vehicle security research into one purpose-built platform. It supports trucks, buses, vocational and off-road equipment, and agricultural machinery across legacy, current, and emerging communication interfaces.
+UTHP brings the interfaces and tooling needed for heavy-vehicle security research into one purpose-built platform. It supports trucks, buses, vocational and off-road equipment, and agricultural machinery across legacy, current, and emerging communication interfaces.
