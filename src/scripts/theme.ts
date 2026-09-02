@@ -7,7 +7,7 @@ const updateControl = () => {
   const dark = root.dataset.theme === "dark";
   toggle?.setAttribute("aria-pressed", String(dark));
   toggle?.setAttribute("aria-label", dark ? "Switch to light theme" : "Switch to dark theme");
-  if (themeColor) themeColor.content = dark ? "#050505" : "#ffffff";
+  if (themeColor) themeColor.content = dark ? "#1a1b1b" : "#f8f4e9";
 };
 
 const setTheme = (theme: "light" | "dark", persist = true) => {

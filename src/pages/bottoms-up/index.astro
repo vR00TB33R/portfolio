@@ -19,13 +19,15 @@ const posts = await Promise.all(
 ---
 
 <BaseLayout
-  title="Bottoms Up 🍻"
-  description="Bottoms Up 🍻 is Spencer Beer's blog for OT security, embedded systems, protocols, and research."
+  title="Bottoms Up"
+  description="Bottoms Up is Spencer Beer's blog for OT security, embedded systems, protocols, and research."
   protocol="SPI"
 >
   <section class="page-hero blog-hero" aria-labelledby="notes-title">
     <p class="section-label">Blog</p>
-    <h1 id="notes-title">Bottoms Up 🍻</h1>
+    <h1 id="notes-title">
+      Bottoms <span class="blog-title-mark">Up<img src="/apple-touch-icon.gif" alt="" width="180" height="180" /></span>
+    </h1>
     <p class="intro">
       Everything is open source if you know where to look: Reverse Engineering Systems from the Ground Up. And occasionally developing them.
     </p>
@@ -35,7 +37,7 @@ const posts = await Promise.all(
     <p class="section-label" id="feed-title">All posts</p>
 
     <div class="content-search" role="search">
-      <label for="content-search">Search Bottoms Up 🍻</label>
+      <label for="content-search">Search Bottoms Up</label>
       <input
         id="content-search"
         type="search"

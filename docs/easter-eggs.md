@@ -96,7 +96,7 @@ To decode it:
 4. Parse the 11-bit identifier, control field, DLC, and data bytes.
 5. Verify CRC-15-CAN and concatenate data from consecutive identifiers.
 
-## SPI on the Bottoms Up 🍻 route
+## SPI on the Bottoms Up  route
 
 SPI does not define a universal packet format, address, checksum, or preamble.
 Those details belong to the selected peripheral. The site implements one concrete,

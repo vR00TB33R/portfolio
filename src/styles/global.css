@@ -1,14 +1,14 @@
 :root {
   color-scheme: light;
-  --page: #ffffff;
-  --surface-soft: #f6f6f2;
-  --ink: #090909;
-  --muted: #5e5e59;
-  --faint: #85857e;
-  --line: #deded8;
-  --line-dark: #bdbdb5;
+  --page: #f8f4e9;
+  --surface-soft: #f1ecdf;
+  --ink: #25231f;
+  --muted: #625e55;
+  --faint: #898378;
+  --line: #ddd6c8;
+  --line-dark: #bdb5a6;
   --accent: #a77800;
-  --header: rgba(255, 255, 255, 0.94);
+  --header: rgba(248, 244, 233, 0.94);
   --signal: #a77800;
   --display: "Segoe UI Variable Display", "Segoe UI", Arial, sans-serif;
   --text: "Segoe UI Variable Text", "Segoe UI", Arial, sans-serif;
@@ -18,15 +18,15 @@
 
 :root[data-theme="dark"] {
   color-scheme: dark;
-  --page: #050505;
-  --surface-soft: #141414;
-  --ink: #f7f6f1;
-  --muted: #b8b7b1;
-  --faint: #898983;
-  --line: #292925;
-  --line-dark: #4b4a44;
+  --page: #1a1b1b;
+  --surface-soft: #242625;
+  --ink: #f1ecdf;
+  --muted: #bbb6ac;
+  --faint: #8f8b83;
+  --line: #353735;
+  --line-dark: #50524e;
   --accent: #d6ad3b;
-  --header: rgba(5, 5, 5, 0.94);
+  --header: rgba(26, 27, 27, 0.94);
   --signal: #d6ad3b;
 }
 
@@ -184,6 +184,18 @@ button:focus-visible {
   min-height: auto;
   padding-top: clamp(56px, 7vw, 84px);
   padding-bottom: clamp(20px, 3vw, 36px);
+}
+
+.blog-title-mark {
+  white-space: nowrap;
+}
+
+.blog-title-mark img {
+  width: 0.82em;
+  height: 0.82em;
+  margin-left: 0.18em;
+  vertical-align: -0.08em;
+  image-rendering: pixelated;
 }
 
 .home-hero {
