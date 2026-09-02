@@ -23,7 +23,7 @@ const isActive = (path: string) =>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
     <meta name="description" content={description} />
-    <meta name="theme-color" content="#ffffff" />
+    <meta name="theme-color" content="#f8f4e9" />
     <link rel="icon" type="image/gif" sizes="32x32" href="/favicon-32x32.gif" />
     <link rel="icon" type="image/gif" sizes="16x16" href="/favicon-16x16.gif" />
     <link rel="apple-touch-icon" href="/apple-touch-icon.gif" />
@@ -50,7 +50,7 @@ const isActive = (path: string) =>
         <a class="identity" href="/images/beers.jpg">Spencer Beer</a>
         <nav aria-label="Primary navigation">
           <a class:list={{ active: isActive("/") }} href="/">Home</a>
-          <a class:list={{ active: isActive("/bottoms-up") }} href="/bottoms-up/">Bottoms Up 🍻</a>
+          <a class:list={{ active: isActive("/bottoms-up") }} href="/bottoms-up/">Bottoms Up</a>
         </nav>
         <button
           class="theme-toggle"

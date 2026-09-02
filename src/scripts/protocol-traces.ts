@@ -24,12 +24,12 @@ type CachedCveFeed = {
 // my favorite beers
 const FALLBACK_MESSAGES = [
   "Hefeweizen",
-  "Indian Pale Ale",
+  "India Pale Ale",
   "Stout",
   "Barleywine",
   "Sour",
   "Lager",
-  "BOTTOMS UP!",
+  "Tripel",
 ] as const;
 
 const NVD_CVE_API_URL = "https://services.nvd.nist.gov/rest/json/cves/2.0/";
