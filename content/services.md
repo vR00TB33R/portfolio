@@ -23,7 +23,7 @@ Rapid prototyping, from proof of concept to working hardware.
 
 - Embedded Linux platforms, microcontrollers, and custom tooling
 - Vehicle-network test rigs and instrumentation
-- Security built in from the first board, not added afterwards
+- 3D modeling custom enclosures and components
 
 ## ./learn
 
