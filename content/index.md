@@ -3,7 +3,7 @@ title: Rootbeer Security
 description: Rootbeer Security is the personal site of Spencer Beer, an embedded systems security engineer, and the home of the Bottoms Up blog.
 ---
 
-Well hello. I am Spencer Beer, an engineer and researcher with a focus on reverse engineering and product security. I write about my work, hobbies, and research in the [[blog/index|Bottoms Up]] blog.
+Hello! I am Spencer Beer, an embedded systems engineer and researcher with a focus on embedded security. I write about my work, hobbies, and research in the [[blog/index|Bottoms Up]] blog.
 
 [[blog/index|cd ~/blog]] · [[projects/index|cd ~/projects]] · [[services|cat ~/services]] · [contact](#contact)
 
