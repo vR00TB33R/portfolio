@@ -80,7 +80,7 @@ export default (() => {
             <span>* Services:</span> <a href="/services">cat ~/services.md</a>
           </li>
           <li>
-            <span>* Help:</span> type <kbd>help</kbd> at the prompt below
+            <span>* Help:</span> type <a href="#shell-input">help</a> at the prompt below
           </li>
         </ul>
       </section>
