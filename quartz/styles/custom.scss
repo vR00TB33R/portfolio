@@ -81,6 +81,24 @@ body[data-slug="index"] article h2 {
   }
 }
 
+// On phones the menu, title, search and toolbar share one row. JetBrains Mono is
+// wide enough that they overflowed it, so shrink the title and show search as
+// an icon.
+@media all and ($mobile) {
+  .page-title {
+    font-size: 1.3rem;
+    white-space: nowrap;
+  }
+
+  .search > .search-button {
+    padding: 0 0.5rem;
+
+    & > p {
+      display: none;
+    }
+  }
+}
+
 hr {
   border: none;
   border-top: 1px dashed var(--lightgray);
