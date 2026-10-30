@@ -11,6 +11,7 @@
     "build": "npx quartz build",
     "check": "tsc --noEmit",
     "install-plugins": "npx tsx ./quartz/plugins/loader/install-plugins.ts",
+    "precheck": "npm run install-plugins",
     "prebuild": "npm run install-plugins",
     "predev": "npm run install-plugins"
   },
