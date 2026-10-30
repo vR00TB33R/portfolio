@@ -35,6 +35,14 @@ const getOpts = ({ target }: Event): { url: URL; scroll?: boolean } | undefined 
   return { url: new URL(href), scroll: "routerNoscroll" in a.dataset ? false : undefined }
 }
 
+function pushUnlessCurrent(url: URL) {
+  if (url.href === window.location.href) {
+    history.replaceState({}, "", url)
+  } else {
+    history.pushState({}, "", url)
+  }
+}
+
 function notifyNav(url: FullSlug) {
   const event: CustomEventMap["nav"] = new CustomEvent("nav", { detail: { url } })
   document.dispatchEvent(event)
@@ -129,7 +137,7 @@ async function _navigate(url: URL, isBack: boolean = false) {
   // delay setting the url until now
   // at this point everything is loaded so changing the url should resolve to the correct addresses
   if (!isBack) {
-    history.pushState({}, "", url)
+    pushUnlessCurrent(url)
   }
 
   notifyNav(getFullSlug(window))
@@ -163,7 +171,7 @@ function createRouter() {
       if (isSamePage(url) && url.hash) {
         const el = document.getElementById(decodeURIComponent(url.hash.substring(1)))
         el?.scrollIntoView()
-        history.pushState({}, "", url)
+        pushUnlessCurrent(url)
         return
       }
 
