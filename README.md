@@ -43,3 +43,15 @@ so a local preview falls back to system fonts until the site is deployed.
 
 `content/_redirects` (Cloudflare format) keeps the old Astro URLs working:
 `/bottoms-up/*`, the project pages that moved from `/blog/` to `/projects/`, and the original mixed-case PDF paths.
+
+## Security headers
+
+`content/_headers` (Cloudflare format) sets the Content-Security-Policy, HSTS and
+the other security headers on every response. The CSP allows inline scripts only
+by hash: `npm run build` runs `scripts/csp-hashes.mjs` afterwards, which hashes
+the inline `<script>` blocks in `public/` and fills them in. Deploy from
+`npm run build`, not `npx quartz build`, or the site's inline scripts are blocked.
+
+Adding a plugin that loads anything from another origin means adding that origin
+to the CSP. Check the browser console for "violates the following Content
+Security Policy directive" after a change.

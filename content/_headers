@@ -1,0 +1,16 @@
+# Security headers for every response (Cloudflare Workers static assets format).
+# scripts/csp-hashes.mjs fills in INLINE_SCRIPT_HASHES after each build with the
+# hashes of Quartz's inline <script> blocks, so no other inline JS can run.
+#
+# script-src allows the exact d3 and pixi.js files the graph plugin loads from
+# jsdelivr, not the whole CDN, and 'unsafe-eval' because pixi.js requires it. connect-src allows the NVD API for the shell's
+# `cve` command.
+# style-src needs 'unsafe-inline': Quartz and its plugins write style="" attributes.
+/*
+  Content-Security-Policy: default-src 'self'; script-src 'self' 'unsafe-eval' INLINE_SCRIPT_HASHES https://cdn.jsdelivr.net/npm/d3@7/dist/d3.min.js https://cdn.jsdelivr.net/npm/pixi.js@8/dist/pixi.js; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; connect-src 'self' https://services.nvd.nist.gov; object-src 'none'; base-uri 'self'; form-action 'self'; frame-ancestors 'none'; upgrade-insecure-requests
+  Strict-Transport-Security: max-age=31536000; includeSubDomains
+  X-Content-Type-Options: nosniff
+  X-Frame-Options: DENY
+  Referrer-Policy: strict-origin-when-cross-origin
+  Permissions-Policy: camera=(), microphone=(), geolocation=(), payment=(), usb=()
+  Cross-Origin-Opener-Policy: same-origin
