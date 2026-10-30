@@ -1,0 +1,73 @@
+@use "../../quartz/styles/variables.scss" as *;
+
+.login-banner {
+  width: 100%;
+  font-family: var(--codeFont);
+  color: var(--darkgray);
+
+  & p,
+  & ul {
+    margin: 0;
+  }
+
+  & .login-user {
+    color: var(--tertiary);
+  }
+
+  & .login-logo {
+    display: block;
+    width: 100%;
+    max-width: 44rem;
+    height: auto;
+    margin: 1.25rem 0 0.75rem;
+    fill: var(--secondary);
+  }
+
+  & h1 {
+    margin: 0;
+    font-size: 1.4rem;
+    color: var(--dark);
+  }
+
+  & .login-role {
+    color: var(--gray);
+    margin-bottom: 1rem;
+  }
+
+  & .login-motd {
+    list-style: none;
+    padding: 0;
+
+    & li {
+      margin: 0.15rem 0;
+    }
+
+    & span {
+      display: inline-block;
+      min-width: 11ch;
+      color: var(--gray);
+    }
+  }
+
+  // Lines arrive one after another, like a slow tty.
+  @media (prefers-reduced-motion: no-preference) {
+    & > * {
+      animation: login-line 0.25s steps(1, end) both;
+    }
+
+    @for $i from 1 through 6 {
+      & > :nth-child(#{$i}) {
+        animation-delay: #{$i * 0.08}s;
+      }
+    }
+  }
+}
+
+@keyframes login-line {
+  from {
+    visibility: hidden;
+  }
+  to {
+    visibility: visible;
+  }
+}

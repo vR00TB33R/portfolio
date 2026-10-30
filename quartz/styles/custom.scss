@@ -1,0 +1,117 @@
+@use "./variables.scss" as *;
+
+// rootbeer.sh terminal theme. Colors and fonts live in quartz.config.yaml;
+// this file handles the shell look on top of Quartz's base styles.
+
+::selection {
+  background: var(--textHighlight);
+}
+
+body {
+  font-size: 15px;
+  letter-spacing: -0.01em;
+}
+
+// No rounded cards anywhere: terminals are square.
+img,
+pre,
+code,
+input,
+button,
+.callout,
+.search > .search-container > .search-space,
+.popover > .popover-inner {
+  border-radius: 0 !important;
+}
+
+a.internal,
+a.external {
+  background: none;
+  padding: 0;
+  text-decoration: underline;
+  text-decoration-color: var(--lightgray);
+  text-underline-offset: 0.2em;
+
+  &:hover {
+    color: var(--tertiary);
+    text-decoration-color: var(--tertiary);
+  }
+}
+
+// Homepage section headings read as commands at a "$ " prompt.
+body[data-slug="index"] article h2 {
+  color: var(--secondary);
+  border-bottom: 1px dashed var(--lightgray);
+  padding-bottom: 0.3rem;
+  margin-top: 3rem;
+
+  &::before {
+    content: "$ " / "";
+    color: var(--tertiary);
+  }
+}
+
+// Blinking block cursor after page titles.
+.article-title::after {
+  content: "" / "";
+  display: inline-block;
+  width: 0.55em;
+  height: 1em;
+  margin-left: 0.2em;
+  vertical-align: -0.12em;
+  background: var(--secondary);
+
+  @media (prefers-reduced-motion: no-preference) {
+    animation: cursor-blink 1.1s steps(1, end) infinite;
+  }
+}
+
+@keyframes cursor-blink {
+  50% {
+    opacity: 0;
+  }
+}
+
+.page-title a {
+  color: var(--secondary);
+
+  &::before {
+    content: "~/" / "";
+    color: var(--gray);
+  }
+}
+
+hr {
+  border: none;
+  border-top: 1px dashed var(--lightgray);
+}
+
+blockquote {
+  border-left: 2px solid var(--secondary);
+}
+
+// The header holds the login banner and prompt line; let them stack.
+.page-header header {
+  flex-wrap: wrap;
+  margin: 2rem 0 1rem;
+}
+
+article img {
+  border: 1px solid var(--lightgray);
+}
+
+table {
+  border-collapse: collapse;
+}
+
+details > summary {
+  cursor: pointer;
+  color: var(--secondary);
+}
+
+// Plain note callouts follow the theme instead of Quartz's default blue.
+article .callout[data-callout="note"] {
+  --color: var(--secondary);
+  --border: var(--lightgray);
+  --bg: var(--highlight);
+}

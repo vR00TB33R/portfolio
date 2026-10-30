@@ -1,0 +1,81 @@
+.shell-nav {
+  font-family: var(--codeFont);
+  color: var(--darkgray);
+  margin: 1rem 0 2rem;
+
+  & .shell-output {
+    white-space: pre-wrap;
+    overflow-wrap: anywhere;
+
+    & .shell-entry {
+      margin-bottom: 0.4rem;
+    }
+
+    & a {
+      color: var(--secondary);
+    }
+  }
+
+  & .shell-ps1 {
+    color: var(--tertiary);
+  }
+
+  & .shell-form {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    gap: 0 1ch;
+  }
+
+  & .shell-input {
+    flex: 1 1 12ch;
+    min-width: 0;
+    border: none;
+    outline: none;
+    background: transparent;
+    color: var(--dark);
+    caret-color: var(--secondary);
+    font: inherit;
+    // 16px or larger stops iOS Safari from zooming into the field.
+    font-size: max(1rem, 16px);
+    padding: 0.25rem 0;
+
+    &::placeholder {
+      color: var(--gray);
+    }
+
+    &:focus-visible {
+      box-shadow: 0 1px 0 var(--secondary);
+    }
+  }
+
+  & .shell-chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-top: 0.75rem;
+  }
+
+  & .shell-chip {
+    font: inherit;
+    font-size: 0.85rem;
+    min-height: 2.25rem;
+    padding: 0.25rem 0.7rem;
+    color: var(--secondary);
+    background: transparent;
+    border: 1px solid var(--lightgray);
+    border-radius: 0;
+    cursor: pointer;
+
+    &::before {
+      content: "$ " / "";
+      color: var(--gray);
+    }
+
+    &:hover,
+    &:focus-visible {
+      border-color: var(--secondary);
+      background: var(--highlight);
+    }
+  }
+}

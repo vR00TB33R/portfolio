@@ -2,8 +2,10 @@
   "name": "portfolio",
   "compatibility_date": "2026-08-31",
   "assets": {
-    "directory": "./dist",
-    "html_handling": "auto-trailing-slash"
+    // Quartz builds into ./public. Pages are emitted as foo.html and served at /foo.
+    "directory": "./public",
+    "html_handling": "auto-trailing-slash",
+    "not_found_handling": "404-page"
   },
   "observability": {
     "enabled": false
