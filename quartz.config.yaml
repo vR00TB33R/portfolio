@@ -98,8 +98,9 @@ plugins:
   - source: "@quartz-community/description"
     enabled: true
     order: 70
+  # Off: no page uses math, and it loads KaTeX from jsdelivr on every page.
   - source: "@quartz-community/latex"
-    enabled: true
+    enabled: false
     options:
       renderEngine: katex
     order: 80
@@ -107,6 +108,15 @@ plugins:
   # requests to Google.
   - source: "@quartz-community/quartz-fonts"
     enabled: true
+    # Without these the plugin falls back to Quartz's default fonts and links
+    # them from Google Fonts. "local" uses the theme's self-hosted files.
+    options:
+      fontOrigin: local
+      useThemeFonts: false
+      title: JetBrains Mono
+      header: JetBrains Mono
+      body: JetBrains Mono
+      code: JetBrains Mono
   - source: "@quartz-community/remove-draft"
     enabled: true
   - source: "@quartz-community/alias-redirects"

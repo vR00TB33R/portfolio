@@ -13,6 +13,7 @@
     "install-plugins": "npx tsx ./quartz/plugins/loader/install-plugins.ts",
     "precheck": "npm run install-plugins",
     "prebuild": "npm run install-plugins",
+    "postbuild": "node scripts/csp-hashes.mjs",
     "predev": "npm run install-plugins"
   },
   "engines": {
