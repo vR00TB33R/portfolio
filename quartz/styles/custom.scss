@@ -97,6 +97,12 @@ body[data-slug="index"] article h2 {
       display: none;
     }
   }
+
+  // The explorer plugin un-hides the menu, forces a style flush (checkVisibility)
+  .page > #quartz-body .explorer:not([aria-expanded="true"]) > .explorer-content {
+    transform: translateX(-100vw);
+    visibility: hidden;
+  }
 }
 
 hr {
