@@ -1,34 +1,45 @@
-# Spencer "Root" Beer's portfolio
+# rootbeer.sh
 
-A static Astro portfolio for security, embedded systems work, and the
-**Bottoms Up** blog.
+Spencer "Root" Beer's site: Rootbeer Security, the **Bottoms Up** blog, and
+services. It is built with [Quartz 5](https://quartz.jzhao.xyz) and themed to
+look like you just logged into a shell.
 
 ## Local development
 
-```powershell
-npm install
-npm run dev
+```sh
+npm ci
+npm run dev      # builds and serves at http://localhost:8080
 ```
 
-The production check is:
+`npm run check` type-checks and `npm run build` writes the static site to
+`public/`. Cloudflare Workers serves that directory (see `wrangler.jsonc`).
 
-```powershell
-npm run build
-```
+Font URLs in the built CSS are absolute (`https://rootbeer.sh/static/fonts/...`),
+so a local preview falls back to system fonts until the site is deployed.
 
-Astro writes the static site to `dist/`, keeping the project suitable for a
-static host such as Cloudflare Pages.
+## Writing
 
-## Adding a Bottoms Up  entry
+- Home page: `content/index.md`. Each `##` heading reads as a shell command.
+- Blog posts: add a Markdown file to `content/blog/`. Projects: add one to
+  `content/projects/`. Frontmatter takes `title`, `description`, `tags`, `draft`,
+  and `order` (sort position on the folder page).
+  Put images in the body, e.g. `![alt](/media/projects/foo/cover.png)`.
+- Services: `content/services.md`.
+- Images and GIFs live under `content/media/` (one folder per project in
+  `content/media/projects/`, each with `cover.png` and `demo.gif`) and PDFs under `content/pdfs/`. Quartz
+  lowercases asset filenames and replaces spaces with dashes; links in Markdown
+  are rewritten automatically.
 
-Create a Markdown file in `src/content/posts/` with the post frontmatter
-defined in `src/content.config.ts`. Posts can optionally include featured media,
-related links, and a display order. Published entries render automatically on the
-Bottoms Up  route.
+## Shell theme
 
-## Changing the hidden signals
+- Colors, fonts and plugins: `quartz.config.yaml`
+- Global styles: `quartz/styles/custom.scss`
+- Shell components in `shell/`, added to every page in `quartz.ts`:
+  - `LoginBanner`: login banner on the home page
+  - `PromptLine`: the `guest@rootbeer.sh:~/projects$ cat uthp.md` breadcrumb
+  - `ShellNav`: interactive prompt and quick-command buttons (`help` lists commands)
 
-Edit `SIGNAL_MESSAGES` near the top of
-`src/scripts/protocol-traces.ts`. See
-`docs/signal-easter-eggs.md` for bit order, lane behavior, and the protocol
-accuracy boundary.
+## Redirects
+
+`content/_redirects` (Cloudflare format) keeps the old Astro URLs working:
+`/bottoms-up/*`, the project pages that moved from `/blog/` to `/projects/`, and the original mixed-case PDF paths.

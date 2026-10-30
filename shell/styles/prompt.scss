@@ -1,0 +1,25 @@
+.prompt-line {
+  font-family: var(--codeFont);
+  font-size: 0.95rem;
+  color: var(--darkgray);
+  overflow-wrap: anywhere;
+  width: 100%;
+
+  & a {
+    color: var(--secondary);
+    background: none;
+    padding: 0;
+  }
+
+  & .prompt-user {
+    color: var(--tertiary);
+  }
+
+  & .prompt-sigil {
+    color: var(--gray);
+  }
+
+  & .prompt-command {
+    color: var(--dark);
+  }
+}

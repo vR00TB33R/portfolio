@@ -1,0 +1,49 @@
+# Old Astro routes. The blog moved from /bottoms-up/ to /blog/, and its
+# project write-ups moved again to /projects/.
+/bottoms-up /blog/ 301
+/bottoms-up/ /blog/ 301
+/bottoms-up/apdde /projects/apdde 301
+/bottoms-up/ekart /projects/ekart 301
+/bottoms-up/screamba /projects/screamba 301
+/bottoms-up/smart-fish-tank /projects/smart-fish-tank 301
+/bottoms-up/uthp /projects/uthp 301
+/bottoms-up/vptp /projects/vptp 301
+/bottoms-up/* /blog/:splat 301
+/blog/apdde /projects/apdde 301
+/blog/ekart /projects/ekart 301
+/blog/screamba /projects/screamba 301
+/blog/smart-fish-tank /projects/smart-fish-tank 301
+/blog/uthp /projects/uthp 301
+/blog/vptp /projects/vptp 301
+
+# Quartz slugifies asset filenames; keep the old PDF URLs working.
+/pdfs/2023-APDde.pdf /pdfs/2023-apdde.pdf 301
+/pdfs/ABT101%20_Air%20Brake%20Training%20Certificate%20of%20Completion.pdf /pdfs/abt101-_air-brake-training-certificate-of-completion.pdf 301
+/pdfs/Aquatic-Monitoring-System.pdf /pdfs/aquatic-monitoring-system.pdf 301
+/pdfs/GitHubFoundations_Badge20250626-26-87c2li.pdf /pdfs/githubfoundations_badge20250626-26-87c2li.pdf 301
+/pdfs/Patching%20an%20Engine.pdf /pdfs/patching-an-engine.pdf 301
+/pdfs/UTHP__ACM_CODASPY_2025__Tools___Dataset_Track_.pdf /pdfs/uthp__acm_codaspy_2025__tools___dataset_track_.pdf 301
+/pdfs/Update_%20Engineering%20building%20closed%20due%20to%20battery%20fire%20%E2%80%93%20The%20Rocky%20Mountain%20Collegian.pdf /pdfs/update_-engineering-building-closed-due-to-battery-fire---the-rocky-mountain-collegian.pdf 301
+/pdfs/WSRC%202025%20SECURING%20LEGACY%20TRANSPORT%20PROTOCOLS_REQUIREMENTS%20DRIVEN%20MITIGATION%20FOR%20COMMUNICATION%20SYSTEMS.pdf /pdfs/wsrc-2025-securing-legacy-transport-protocols_requirements-driven-mitigation-for-communication-systems.pdf 301
+/pdfs/eCTFcreds.pdf /pdfs/ectfcreds.pdf 301
+/pdfs/grad2026SpencerB.pdf /pdfs/grad2026spencerb.pdf 301
+
+# Shell command routes.
+/automotive-timeline https://autosec-timeline.delikely.eu.org/?lang=en 302
+
+# Images moved from /images/ to /media/, with one folder per project.
+/images/portfolio/apdde.png /media/projects/apdde/cover.png 301
+/images/portfolio/gallery/APDde.gif /media/projects/apdde/demo.gif 301
+/images/portfolio/gallery/apdde.gif /media/projects/apdde/demo.gif 301
+/images/portfolio/ekart.png /media/projects/ekart/cover.png 301
+/images/portfolio/gallery/ekart.gif /media/projects/ekart/demo.gif 301
+/images/portfolio/screamba.png /media/projects/screamba/cover.png 301
+/images/portfolio/gallery/Screamba.gif /media/projects/screamba/demo.gif 301
+/images/portfolio/gallery/screamba.gif /media/projects/screamba/demo.gif 301
+/images/portfolio/aquatic-monitor.png /media/projects/smart-fish-tank/cover.png 301
+/images/portfolio/gallery/sft.gif /media/projects/smart-fish-tank/demo.gif 301
+/images/portfolio/uthp.png /media/projects/uthp/cover.png 301
+/images/portfolio/gallery/j1708dump-from-pru.gif /media/projects/uthp/demo.gif 301
+/images/portfolio/vptp.png /media/projects/vptp/cover.png 301
+/images/portfolio/gallery/vptp-savvycan.gif /media/projects/vptp/demo.gif 301
+/images/beers.jpg /media/beers.jpg 301
