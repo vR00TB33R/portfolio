@@ -20,15 +20,11 @@ so a local preview falls back to system fonts until the site is deployed.
 ## Writing
 
 - Home page: `content/index.md`. Each `##` heading reads as a shell command.
-- Blog posts: add a Markdown file to `content/blog/`. Projects: add one to
-  `content/projects/`. Frontmatter takes `title`, `description`, `tags`, `draft`,
-  and `order` (sort position on the folder page).
-  Put images in the body, e.g. `![alt](/media/projects/foo/cover.png)`.
+- Blog posts: add a Markdown file to `content/blog/`. 
+- Projects: add one to `content/projects/`. Frontmatter takes `title`, `description`, `tags`, `draft`, and `order` (sort position on the folder page). Put images in the body, e.g. `![alt](/media/projects/foo/cover.png)`.
 - Services: `content/services.md`.
 - Images and GIFs live under `content/media/` (one folder per project in
-  `content/media/projects/`, each with `cover.png` and `demo.gif`) and PDFs under `content/pdfs/`. Quartz
-  lowercases asset filenames and replaces spaces with dashes; links in Markdown
-  are rewritten automatically.
+  `content/media/projects/`, each with `cover.png` and `demo.gif`) and PDFs under `content/pdfs/`. Quartz lowercases asset filenames and replaces spaces with dashes; links in Markdown are rewritten automatically.
 
 ## Shell theme
 
